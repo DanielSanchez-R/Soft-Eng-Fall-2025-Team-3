@@ -1,0 +1,67 @@
+# Pizza 505 ENMU – Restaurant Booking & Ordering System
+
+A full-stack **Java EE MVC web application** built for ENMU’s CS 472 Software Engineering course.  
+The system enables administrators, staff, and customers to manage restaurant menus, reservations, and online orders in real time.
+
+
+##  Overview
+
+**Design Pattern:** Model-View-Controller (MVC)  
+**Language:** Java (Servlet/JSP)  
+**Server:** Apache Tomcat 7.0.109  
+**Database:** H2 Embedded (File Mode)  
+**Persistence:** JDBC  
+**Email Service:** JavaMail API + Gmail SMTP  
+
+## Libraries & Dependencies
+
+| Library | Version | Purpose |
+| **javax.servlet-api** | 3.0.1 | Provides Servlet/JSP interfaces for web layer |
+| **javax.mail** | 1.6.2 | Used by `EmailUtil` for password reset / invite emails |
+| **activation** | 1.1.1 | Required by JavaMail for MIME message handling |
+| **h2** | 1.4.200 | Lightweight embedded SQL database (local `.mv.db` file) |
+| **mysql-connector-java** | 5.1.49 | Optional external DB compatibility | **Can connect to MySQL 5.7+ by switching the connection string in DBConnection.java.**
+| **JSTL (included in Tomcat)** | — | Simplifies JSP logic and loops |
+
+> These libraries are stored in `/lib/` or linked through IntelliJ’s **Project Structure → Libraries**  
+
+##  Running the Project
+
+###  Option 1: Using IntelliJ IDEA (Build Artifact)
+1. Open **IntelliJ IDEA Ultimate** (recommended)  
+2. Import the project folder (`File → Open → Fall2025Project`)  
+3. Go to **File → Project Structure → Artifacts → + Web Application: Exploded → From Modules**  
+4. Choose output directory: `out/artifacts/Fall2025Project_war_exploded/`  
+5. Configure **Tomcat 7.0.109** as your run server  
+6. Run the artifact → open browser:  
+    `http://localhost:8080/Fall2025Project/login.jsp`
+
+Database
+•	Uses H2 Embedded Database auto-initialized by DBConnection.java.
+•	Database file stored at:
+/data/restaurantdb.mv.db
+Tables include:
+•	users, staff, customers
+•	MenuItem, Orders, OrderItems
+•	reservations, password_reset_tokens
+Default admin/staff/customer accounts are seeded automatically.
+
+Admin
+admin@restaurant.com
+1234
+adminDashboard.jsp
+
+Manager
+manager@restaurant.com
+1234
+staffDashboard.jsp
+
+Customer
+customer@restaurant.com
+1234
+customerDashboard.jsp
+
+Email Setup
+Update util/EmailUtil.java
+final String from = "your_gmail@gmail.com";
+final String password = "your_app_password"; // Google App Password (16-chars)
