@@ -1,7 +1,6 @@
 package model;
 
 import java.time.LocalDateTime;
-
 /**
  * Reservation represents a table booking made by a customer in the
  * restaurant booking and ordering system. It stores all relevant details
@@ -64,12 +63,14 @@ public class Reservation {
     /** Current status of the reservation (confirmed, cancelled, no-show). */
     private String status;
 
-    /**
-     * Default no-argument constructor.
-     * <p>
-     * Required for frameworks or ORM tools that use reflection or serialization.
-     * </p>
-     */
+
+    private String referenceId;           // Unique booking reference
+    private String notes;                  // Customer notes
+    private Integer customerId;            // Link to authenticated customer (nullable)
+    private LocalDateTime createdAt;       // Timestamp of creation
+    private LocalDateTime modifiedAt;      // Last modification timestamp
+
+    // Default constructor
     public Reservation() {}
 
     /**
@@ -84,7 +85,9 @@ public class Reservation {
      * @param status        current status (confirmed, cancelled, no-show)
      */
     public Reservation(int id, String customerName, String contact, int tableId,
-                       LocalDateTime dateTime, int partySize, String status) {
+                       LocalDateTime dateTime, int partySize, String status,
+                       String referenceId, String notes, Integer customerId,
+                       LocalDateTime createdAt, LocalDateTime modifiedAt) {
         this.id = id;
         this.customerName = customerName;
         this.contact = contact;
@@ -92,9 +95,30 @@ public class Reservation {
         this.dateTime = dateTime;
         this.partySize = partySize;
         this.status = status;
+        this.referenceId = referenceId;
+        this.notes = notes;
+        this.customerId = customerId;
+        this.createdAt = createdAt;
+        this.modifiedAt = modifiedAt;
     }
 
-    /** @return the unique reservation ID */
+    // Add getters and setters for new fields:
+    public String getReferenceId() { return referenceId; }
+    public void setReferenceId(String referenceId) { this.referenceId = referenceId; }
+
+    public String getNotes() { return notes; }
+    public void setNotes(String notes) { this.notes = notes; }
+
+    public Integer getCustomerId() { return customerId; }
+    public void setCustomerId(Integer customerId) { this.customerId = customerId; }
+
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+
+    public LocalDateTime getModifiedAt() { return modifiedAt; }
+    public void setModifiedAt(LocalDateTime modifiedAt) { this.modifiedAt = modifiedAt; }
+
+    // Existing getters/setters remain...
     public int getId() { return id; }
 
     /** @param id sets the unique reservation ID */

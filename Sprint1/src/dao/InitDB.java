@@ -109,6 +109,53 @@ public class InitDB {
 
             System.out.println("✅ H2 schema and sample data successfully initialized!");
 
+            // ===== UPDATE RESERVATIONS TABLE =====
+            st.execute("CREATE TABLE IF NOT EXISTS reservations (" +
+                    "id INT AUTO_INCREMENT PRIMARY KEY, " +
+                    "customer_name VARCHAR(100), " +
+                    "contact VARCHAR(100), " +
+                    "table_id INT, " +
+                    "date_time TIMESTAMP, " +
+                    "party_size INT, " +
+                    "status VARCHAR(50) DEFAULT 'confirmed', " +
+                    "reference_id VARCHAR(20) UNIQUE, " +
+                    "notes TEXT, " +
+                    "customer_id INT, " +
+                    "created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, " +
+                    "modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, " +
+                    "FOREIGN KEY (table_id) REFERENCES Tables(id), " +
+                    "FOREIGN KEY (customer_id) REFERENCES customers(id))");
+
+            // ===== BUSINESS HOURS TABLE =====
+            st.execute("CREATE TABLE IF NOT EXISTS business_hours (" +
+                    "id INT AUTO_INCREMENT PRIMARY KEY, " +
+                    "day_of_week INT, " +
+                    "open_time TIME, " +
+                    "close_time TIME)");
+
+            // Seed default business hours (Mon-Sun, 11am-10pm)
+            st.execute("MERGE INTO business_hours (day_of_week, open_time, close_time) KEY(day_of_week) VALUES " +
+                    "(1, '11:00:00', '22:00:00'), " + // Monday
+                    "(2, '11:00:00', '22:00:00'), " + // Tuesday
+                    "(3, '11:00:00', '22:00:00'), " + // Wednesday
+                    "(4, '11:00:00', '22:00:00'), " + // Thursday
+                    "(5, '11:00:00', '23:00:00'), " + // Friday
+                    "(6, '11:00:00', '23:00:00'), " + // Saturday
+                    "(7, '12:00:00', '21:00:00')");   // Sunday
+
+            // ===== RESERVATION POLICIES TABLE =====
+            st.execute("CREATE TABLE IF NOT EXISTS reservation_policies (" +
+                    "id INT AUTO_INCREMENT PRIMARY KEY, " +
+                    "policy_type VARCHAR(50) UNIQUE, " +
+                    "hours_before INT, " +
+                    "description TEXT)");
+
+            st.execute("MERGE INTO reservation_policies (policy_type, hours_before, description) KEY(policy_type) VALUES " +
+                    "('cancellation', 2, 'Reservations must be cancelled at least 2 hours before the scheduled time'), " +
+                    "('modification', 2, 'Reservations can be modified up to 2 hours before the scheduled time')");
+
+            System.out.println("✅ Reservations schema updated successfully!");
+
         } catch (Exception e) {
             e.printStackTrace();
         }

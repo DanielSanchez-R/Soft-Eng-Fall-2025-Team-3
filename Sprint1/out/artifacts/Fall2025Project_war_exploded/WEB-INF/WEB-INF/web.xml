@@ -2,200 +2,227 @@
 <web-app xmlns="http://java.sun.com/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
-                             http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
 
-    <display-name>Fall2025Project</display-name>
+    <!-- Application Display Name -->
+    <display-name>Pizza 505 ENMU Restaurant Management System</display-name>
+
+    <!-- Welcome File List -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>login.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- Session Configuration (30 minute timeout) -->
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
 
     <!-- ========================================= -->
-    <!-- Authentication Controller -->
+    <!-- AUTHENTICATION & USER MANAGEMENT          -->
     <!-- ========================================= -->
+
+    <!-- Authentication Controller -->
     <servlet>
         <servlet-name>AuthController</servlet-name>
         <servlet-class>controller.AuthController</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>AuthController</servlet-name>
         <url-pattern>/auth</url-pattern>
     </servlet-mapping>
 
-
-    <!-- ========================================= -->
-    <!-- Staff Management Controller -->
-    <!-- ========================================= -->
-    <servlet>
-        <servlet-name>StaffController</servlet-name>
-        <servlet-class>controller.StaffController</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>StaffController</servlet-name>
-        <url-pattern>/staff</url-pattern>
-    </servlet-mapping>
-
-
-    <!-- ========================================= -->
-    <!-- Customer Controller -->
-    <!-- ========================================= -->
+    <!-- Customer Controller (Registration & Password Reset) -->
     <servlet>
         <servlet-name>CustomerController</servlet-name>
         <servlet-class>controller.CustomerController</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>CustomerController</servlet-name>
         <url-pattern>/customer</url-pattern>
     </servlet-mapping>
 
+    <!-- Staff Management Controller -->
+    <servlet>
+        <servlet-name>StaffController</servlet-name>
+        <servlet-class>controller.StaffController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StaffController</servlet-name>
+        <url-pattern>/staff</url-pattern>
+    </servlet-mapping>
 
     <!-- ========================================= -->
-    <!-- 🧩 Menu Management Controller (Manager/Admin) -->
+    <!-- MENU MANAGEMENT                           -->
     <!-- ========================================= -->
+
+    <!-- Menu Controller (Admin/Staff Menu Management) -->
     <servlet>
         <servlet-name>MenuController</servlet-name>
         <servlet-class>controller.MenuController</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>MenuController</servlet-name>
         <url-pattern>/menu</url-pattern>
     </servlet-mapping>
 
+    <!-- ========================================= -->
+    <!-- ORDER MANAGEMENT                          -->
+    <!-- ========================================= -->
 
-    <!-- ========================================= -->
-    <!-- 🧾 Order Controller (Customer Orders) -->
-    <!-- ========================================= -->
+    <!-- Order Controller (Add to Cart) -->
     <servlet>
         <servlet-name>OrderController</servlet-name>
         <servlet-class>controller.OrderController</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>OrderController</servlet-name>
         <url-pattern>/order</url-pattern>
     </servlet-mapping>
 
-
-    <!-- ========================================= -->
-    <!-- H2 Database Web Console -->
-    <!-- ========================================= -->
-    <servlet>
-        <servlet-name>H2Console</servlet-name>
-        <servlet-class>org.h2.server.web.WebServlet</servlet-class>
-        <init-param>
-            <param-name>-webAllowOthers</param-name>
-            <param-value>true</param-value>
-        </init-param>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>H2Console</servlet-name>
-        <url-pattern>/h2/*</url-pattern>
-    </servlet-mapping>
-
-
-    <!-- ========================================= -->
-    <!-- JSP Fallback & Static Resources -->
-    <!-- ========================================= -->
-    <servlet>
-        <servlet-name>jsp</servlet-name>
-        <servlet-class>org.apache.jasper.servlet.JspServlet</servlet-class>
-        <init-param>
-            <param-name>fork</param-name>
-            <param-value>false</param-value>
-        </init-param>
-        <load-on-startup>3</load-on-startup>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>jsp</servlet-name>
-        <url-pattern>*.jsp</url-pattern>
-    </servlet-mapping>
-
-
-    <!-- ========================================= -->
-    <!-- Default Welcome Page -->
-    <!-- ========================================= -->
-    <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
-        <welcome-file>login.jsp</welcome-file>
-        <welcome-file>forgotStaffPassword.jsp</welcome-file>
-    </welcome-file-list>
-
-    <!-- ========================================= -->
-    <!-- Remove Item From Cart Controller -->
-    <!-- ========================================= -->
+    <!-- Remove Single Item from Cart -->
     <servlet>
         <servlet-name>RemoveFromCartController</servlet-name>
         <servlet-class>controller.RemoveFromCartController</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>RemoveFromCartController</servlet-name>
         <url-pattern>/removeFromCart</url-pattern>
     </servlet-mapping>
 
-    <!-- Remove All From Cart Controller -->
+    <!-- Remove All Instances of Item from Cart -->
     <servlet>
         <servlet-name>RemoveAllFromCartController</servlet-name>
         <servlet-class>controller.RemoveAllFromCartController</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>RemoveAllFromCartController</servlet-name>
         <url-pattern>/removeAllFromCart</url-pattern>
     </servlet-mapping>
 
-    <!-- ========================================= -->
     <!-- Checkout Controller -->
-    <!-- ========================================= -->
     <servlet>
         <servlet-name>CheckoutController</servlet-name>
         <servlet-class>controller.CheckoutController</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>CheckoutController</servlet-name>
         <url-pattern>/checkout</url-pattern>
     </servlet-mapping>
 
     <!-- ========================================= -->
-    <!-- Table Management Controller (Admin only) -->
+    <!-- RESERVATION MANAGEMENT (NEW)              -->
     <!-- ========================================= -->
+
+    <!-- Staff Reservation Controller -->
+    <servlet>
+        <servlet-name>ReservationController</servlet-name>
+        <servlet-class>controller.ReservationController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReservationController</servlet-name>
+        <url-pattern>/reservation</url-pattern>
+    </servlet-mapping>
+
+    <!-- Customer Reservation Controller (NEW) -->
+    <servlet>
+        <servlet-name>CustomerReservationController</servlet-name>
+        <servlet-class>controller.CustomerReservationController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CustomerReservationController</servlet-name>
+        <url-pattern>/customerReservation</url-pattern>
+    </servlet-mapping>
+
+    <!-- Table Layout Viewer (NEW) -->
+    <servlet>
+        <servlet-name>TableLayoutController</servlet-name>
+        <servlet-class>controller.TableLayoutController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TableLayoutController</servlet-name>
+        <url-pattern>/tableLayout</url-pattern>
+    </servlet-mapping>
+
+    <!-- ========================================= -->
+    <!-- TABLE MANAGEMENT                          -->
+    <!-- ========================================= -->
+
+    <!-- Table Management Controller (Admin) -->
     <servlet>
         <servlet-name>TableController</servlet-name>
         <servlet-class>controller.TableController</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>TableController</servlet-name>
         <url-pattern>/tables</url-pattern>
     </servlet-mapping>
 
+    <!-- ========================================= -->
+    <!-- ERROR PAGES                               -->
+    <!-- ========================================= -->
 
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error404.jsp</location>
+    </error-page>
+
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error500.jsp</location>
+    </error-page>
+
+    <error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/error.jsp</location>
+    </error-page>
 
     <!-- ========================================= -->
-    <!-- Encoding Filter -->
+    <!-- SECURITY CONSTRAINTS (Optional)           -->
     <!-- ========================================= -->
-    <filter>
-        <filter-name>EncodingFilter</filter-name>
-        <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
-        <init-param>
-            <param-name>encoding</param-name>
-            <param-value>UTF-8</param-value>
-        </init-param>
-        <init-param>
-            <param-name>ignore</param-name>
-            <param-value>false</param-value>
-        </init-param>
-    </filter>
 
-    <filter-mapping>
-        <filter-name>EncodingFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
+    <!-- Uncomment to require HTTPS for sensitive operations
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Secure Pages</web-resource-name>
+            <url-pattern>/auth</url-pattern>
+            <url-pattern>/customer</url-pattern>
+            <url-pattern>/checkout</url-pattern>
+        </web-resource-collection>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+    -->
+
+    <!-- ========================================= -->
+    <!-- MIME TYPE MAPPINGS                        -->
+    <!-- ========================================= -->
+
+    <mime-mapping>
+        <extension>css</extension>
+        <mime-type>text/css</mime-type>
+    </mime-mapping>
+
+    <mime-mapping>
+        <extension>js</extension>
+        <mime-type>application/javascript</mime-type>
+    </mime-mapping>
+
+    <mime-mapping>
+        <extension>json</extension>
+        <mime-type>application/json</mime-type>
+    </mime-mapping>
+
+    <mime-mapping>
+        <extension>woff</extension>
+        <mime-type>application/font-woff</mime-type>
+    </mime-mapping>
+
+    <mime-mapping>
+        <extension>woff2</extension>
+        <mime-type>application/font-woff2</mime-type>
+    </mime-mapping>
 
 </web-app>
-
