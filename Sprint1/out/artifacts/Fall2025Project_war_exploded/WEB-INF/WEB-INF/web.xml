@@ -159,42 +159,6 @@
         <url-pattern>/tables</url-pattern>
     </servlet-mapping>
 
-    <!-- ========================================= -->
-    <!-- ERROR PAGES                               -->
-    <!-- ========================================= -->
-
-    <error-page>
-        <error-code>404</error-code>
-        <location>/error404.jsp</location>
-    </error-page>
-
-    <error-page>
-        <error-code>500</error-code>
-        <location>/error500.jsp</location>
-    </error-page>
-
-    <error-page>
-        <exception-type>java.lang.Exception</exception-type>
-        <location>/error.jsp</location>
-    </error-page>
-
-    <!-- ========================================= -->
-    <!-- SECURITY CONSTRAINTS (Optional)           -->
-    <!-- ========================================= -->
-
-    <!-- Uncomment to require HTTPS for sensitive operations
-    <security-constraint>
-        <web-resource-collection>
-            <web-resource-name>Secure Pages</web-resource-name>
-            <url-pattern>/auth</url-pattern>
-            <url-pattern>/customer</url-pattern>
-            <url-pattern>/checkout</url-pattern>
-        </web-resource-collection>
-        <user-data-constraint>
-            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
-        </user-data-constraint>
-    </security-constraint>
-    -->
 
     <!-- ========================================= -->
     <!-- MIME TYPE MAPPINGS                        -->
