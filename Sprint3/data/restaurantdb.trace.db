@@ -1,0 +1,9 @@
+2025-10-19 15:00:05 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PASSWORD_RESET_TOKENS" not found; SQL statement:
+INSERT INTO password_reset_tokens (email, token) VALUES (?, ?) [42102-200]
+2025-10-19 15:05:50 jdbc[9]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PASSWORD_RESET_TOKENS" not found; SQL statement:
+INSERT INTO password_reset_tokens (email, token) VALUES (?, ?) [42102-200]
+2025-10-19 15:10:16 jdbc[9]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PASSWORD_RESET_TOKENS" not found; SQL statement:
+INSERT INTO password_reset_tokens (email, token) VALUES (?, ?) [42102-200]
