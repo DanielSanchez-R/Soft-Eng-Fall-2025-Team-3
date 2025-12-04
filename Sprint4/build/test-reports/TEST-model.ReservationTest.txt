@@ -1,0 +1,6 @@
+Testsuite: model.ReservationTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 sec
+
+Testcase: testNullableCustomerIdAndNotesAllowed took 0.016 sec
+Testcase: testAllArgsConstructor took 0 sec
+Testcase: testNoArgConstructorAndSetters took 0 sec
