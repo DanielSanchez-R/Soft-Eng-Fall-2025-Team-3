@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="libraries2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Sprint3/.idea/libraries/activation-1.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Sprint3/.idea/libraries/javax.mail-1.6.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
