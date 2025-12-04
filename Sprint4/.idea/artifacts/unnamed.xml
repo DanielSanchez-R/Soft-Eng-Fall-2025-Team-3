@@ -1,6 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="exploded-war" name="unnamed">
-    <output-path>$PROJECT_DIR$/Sprint1/out/artifacts/Fall2025Project_war_exploded</output-path>
-    <root id="root" />
-  </artifact>
-</component>
