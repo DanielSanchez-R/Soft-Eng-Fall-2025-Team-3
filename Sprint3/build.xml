@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Fall2025Project" default="war" basedir=".">
+
+    <!-- ============================== -->
+    <!--          SETUP PATHS           -->
+    <!-- ============================== -->
+    <property name="src.dir" value="src"/>
+    <property name="web.dir" value="web"/>
+    <property name="lib.dir" value="lib"/>
+    <property name="data.dir" value="data"/>
+    <property name="build.dir" value="build"/>
+    <property name="classes.dir" value="${build.dir}/classes"/>
+    <property name="war.name" value="Fall2025Project.war"/>
+    <property name="war.file" value="${build.dir}/${war.name}"/>
+
+    <!-- Classpath includes everything in /lib -->
+    <path id="lib.classpath">
+        <fileset dir="${lib.dir}" includes="*.jar"/>
+    </path>
+
+    <!-- ============================== -->
+    <!--           TARGETS              -->
+    <!-- ============================== -->
+
+    <!--  Clean old build -->
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <!-- ️ Compile Java source -->
+    <target name="compile">
+        <mkdir dir="${classes.dir}"/>
+        <javac
+                srcdir="${src.dir}"
+                destdir="${classes.dir}"
+                includeantruntime="false"
+                encoding="UTF-8"
+                source="1.7"
+                target="1.7">
+            <classpath refid="lib.classpath"/>
+        </javac>
+    </target>
+
+    <!--  Build the WAR -->
+    <target name="war" depends="compile">
+        <!-- Create necessary folders -->
+        <mkdir dir="${build.dir}/WEB-INF/lib"/>
+        <mkdir dir="${build.dir}/WEB-INF/data"/>
+
+        <!-- Copy all dependency jars -->
+        <copy todir="${build.dir}/WEB-INF/lib">
+            <fileset dir="${lib.dir}" includes="*.jar"/>
+        </copy>
+
+        <!-- Copy database files from /data into WEB-INF/data -->
+        <copy todir="${build.dir}/WEB-INF/data" failonerror="false">
+            <fileset dir="${data.dir}" includes="*.mv.db,*.trace.db"/>
+        </copy>
+
+        <!-- Create WAR (web + classes + libs + data) -->
+        <war destfile="${war.file}" webxml="${web.dir}/WEB-INF/web.xml" basedir="${web}">
+            <lib dir="${lib.dir}"/>
+            <classes dir="${classes.dir}"/>
+            <webinf dir="${build.dir}/WEB-INF/data"/>
+        </war>
+
+        <echo message=" WAR built successfully at: ${war.file}"/>
+    </target>
+
+</project>
+

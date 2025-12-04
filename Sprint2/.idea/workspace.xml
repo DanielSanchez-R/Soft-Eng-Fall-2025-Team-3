@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Fall2025Project:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9701ae0e-30df-4c6a-a8cd-988bfe65ec87" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="345qwfg2Aa98JaWbLXf0L9czhht" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.InitDB.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestDB.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JavaScript Debug.Fall2025Project JavaScript.executor&quot;: &quot;Debug&quot;,
+    &quot;JavaScript Debug.Tomcat 7.0.109 JavaScript.executor&quot;: &quot;Debug&quot;,
+    &quot;JavaScript Debug.pizza web pro JavaScript.executor&quot;: &quot;Debug&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;TomEE Server.Fall2025Project.executor&quot;: &quot;Run&quot;,
+    &quot;Tomcat Server.Fall2025Project.executor&quot;: &quot;Run&quot;,
+    &quot;Tomcat Server.Tomcat 7.0.109.executor&quot;: &quot;Run&quot;,
+    &quot;Tomcat Server.pizza web pro.executor&quot;: &quot;Run&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/danie/Desktop/CS1/THATWORK/Fall2025Project&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.10378788&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.18590604&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.externalDependencies&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\danie\Desktop\CS1\THATWORK\Fall2025Project\out\artifacts\Fall2025Project_war_exploded" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="GoApplicationRunConfiguration" />
+      </set>
+    </option>
+    <option name="excludedTypes">
+      <set>
+        <option value="TomeeConfiguration" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Tomcat Server.Fall2025Project">
+    <configuration name="InitDB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dao.InitDB" />
+      <module name="Fall2025Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestDB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dao.TestDB" />
+      <module name="Fall2025Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.InitDB" />
+      <item itemvalue="Application.TestDB" />
+      <item itemvalue="Tomcat Server.Fall2025Project" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.InitDB" />
+        <item itemvalue="Application.TestDB" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-11.0.21-corretto-11.0.21-3183f394aec4-d55de845" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9701ae0e-30df-4c6a-a8cd-988bfe65ec87" name="Changes" comment="" />
+      <created>1695494176260</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1695494176260</updated>
+      <workItem from="1760514021725" duration="17008000" />
+      <workItem from="1760634442500" duration="2179000" />
+      <workItem from="1760656811688" duration="4268000" />
+      <workItem from="1760814339723" duration="874000" />
+      <workItem from="1760815245126" duration="57666000" />
+      <workItem from="1760897088666" duration="25083000" />
+      <workItem from="1761002225564" duration="4019000" />
+      <workItem from="1761013567854" duration="2277000" />
+      <workItem from="1761046707415" duration="14581000" />
+      <workItem from="1761626399722" duration="947000" />
+      <workItem from="1761629051291" duration="1669000" />
+      <workItem from="1761630763456" duration="567000" />
+      <workItem from="1761631530317" duration="80000" />
+      <workItem from="1761634025744" duration="655000" />
+      <workItem from="1761634782384" duration="1143000" />
+      <workItem from="1761666557252" duration="1918000" />
+      <workItem from="1761670966535" duration="17065000" />
+      <workItem from="1761782545503" duration="1250000" />
+      <workItem from="1761783917492" duration="897000" />
+      <workItem from="1761785046216" duration="20159000" />
+      <workItem from="1761816556701" duration="11425000" />
+      <workItem from="1761830736523" duration="1743000" />
+      <workItem from="1761832659505" duration="1787000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
+  </component>
+</project>
