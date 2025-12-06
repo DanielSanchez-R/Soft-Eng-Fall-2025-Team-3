@@ -1,3 +1,7 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Daniel Sanchez
+--%>
 <%@ page import="java.util.List" %>
 <%@ page import="model.MenuItem" %>
 <%
