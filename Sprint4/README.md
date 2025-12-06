@@ -123,89 +123,31 @@ This automatically opens:
 http://localhost:8080/Fall2025Project
 
 ####Ant Build Targets (What They Do)
+
 clean
 ant clean
 
 
 Deletes build/ and dist/ directories.
 
-compile
+compile: Compiles Java classes from src/ into build/classes.
 ant compile
 
-
-Compiles Java classes from src/ into build/classes.
-
-compile-tests
+compile-tests: Compiles test classes into build/test-classes.
 ant compile-tests
 
-
-Compiles test classes into build/test-classes.
-
-test
+test: Runs all JUnit tests. Results saved under build/test-reports/.
 ant test
 
-
-Runs all JUnit tests. Results saved under build/test-reports/.
-
-war
-ant war
-
-
-Builds the dist/Fall2025Project.war file.
-
-package
-ant package
-
-
-Runs: clean + war.
-
-deploy
-ant deploy
-
-
-Copies the WAR into:
-
-apache-tomcat-7.0.109/webapps/
-
+deploy: clean + war + deploy.
+ant
 
 Tomcat will deploy it automatically on startup.
 
-start-tomcat
-ant start-tomcat
-
-
-Starts Tomcat using the embedded server.
-Automatically assigns CATALINA_HOME and CATALINA_BASE.
-
-stop-tomcat
-ant stop-tomcat
-
-
-Stops the Tomcat server cleanly.
-
-run (default target)
-ant run
-
-
-Runs the entire workflow:
-
-clean
-
-compile
-
-war
-
-deploy
-
-start-tomcat
-
-open browser
-
-all
+all: clean → compile → test → war.
 ant all
 
 
-Runs: clean → compile → test → war.
 
 ####How to Run the Application (Summary)
 
@@ -215,23 +157,22 @@ Ensure all required JAR files are in the correct locations.
 
 Open a terminal and navigate to the project directory:
 
-cd "path\to\Fall2025Project"
-
+Example: cd "path\to\Fall2025Project"
 
 Build and run:
 
 ant
 
-
 Your browser will open automatically to:
 
 http://localhost:8080/Fall2025Project
 
-
 To stop Tomcat:
 
 ctrl c
+
 or
+
 ant stop-tomcat   
 
 ####Database Configuration
@@ -244,7 +185,7 @@ jdbc:h2:file:./data/restaurantdb user: root
 password: no password
 
 ####Accessing the H2 Database Console
-If H2 console is enabled (-Dh2.console=true), access it at:
+H2 console is at:
 http://localhost:8080/Fall2025Project/h2
 Useful SQL queries:
 SELECT * FROM USERS;
@@ -264,7 +205,7 @@ Note: Gmail requires an App Password (not your normal Gmail password).
 ####Running Tests
 JUnit tests are executed using:
 ant test
-Reports output to: build/test-reports/
+
 
 ####Summary of Commands
 ant → build + compile + war + server + deploy
@@ -281,6 +222,7 @@ Password: 1234
 
 Email: customer@restaurant.com	
 Password: 1234
+
 
 
 
