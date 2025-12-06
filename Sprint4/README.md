@@ -275,10 +275,12 @@ ant compile → compile Java source
 ant test → run JUnit tests
 
 ####User login info (no spaces)
+
 Email: admin@restaurant.com	
 Password: 1234
 
 Email: customer@restaurant.com	
 Password: 1234
+
 
 
