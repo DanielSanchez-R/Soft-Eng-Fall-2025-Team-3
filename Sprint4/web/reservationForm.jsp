@@ -1,3 +1,7 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Daniel Sanchez
+--%>
 <%@ page import="model.Reservation" %>
 <%
     Reservation r = (Reservation) request.getAttribute("reservation");
