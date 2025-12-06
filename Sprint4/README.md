@@ -104,7 +104,7 @@ Fall2025Project/ (Directory)
 
 │ apache-tomcat-7.0.109-windows-x64/ (Original Tomcat distribution copy; not used by Ant)
 
-└ tomcat/                           (Legacy Tomcat folder)
+| tomcat/                           (Tomcat folder)
 
 ####Building & Running the Project with Ant
 
@@ -222,6 +222,7 @@ Password: 1234
 
 Email: customer@restaurant.com	
 Password: 1234
+
 
 
 
