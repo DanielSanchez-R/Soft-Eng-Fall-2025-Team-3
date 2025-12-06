@@ -98,9 +98,9 @@ Fall2025Project/ (Directory)
 
 │ apache-tomcat-7.0.109/            (Embedded Tomcat server used by Ant)
 
-│                                    └─ bin/ (startup.bat, shutdown.bat)
+│                                    bin/ (startup.bat, shutdown.bat)
 
-│                                    └─ webapps/ (Ant deploys WAR here)
+│                                    webapps/ (Ant deploys WAR here)
 
 │ apache-tomcat-7.0.109-windows-x64/ (Original Tomcat distribution copy; not used by Ant)
 
@@ -222,6 +222,7 @@ Password: 1234
 
 Email: customer@restaurant.com	
 Password: 1234
+
 
 
 
