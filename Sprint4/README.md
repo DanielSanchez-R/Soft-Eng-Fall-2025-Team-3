@@ -124,19 +124,9 @@ http://localhost:8080/Fall2025Project
 
 ####Ant Build Targets (What They Do)
 
-clean
+clean: Deletes build/ and dist/ directories.
+
 ant clean
-
-
-Deletes build/ and dist/ directories.
-
-compile: Compiles Java classes from src/ into build/classes.
-
-ant compile
-
-compile-tests: Compiles test classes into build/test-classes.
-
-ant compile-tests
 
 test: Runs all JUnit tests. Results saved under build/test-reports/.
 
@@ -147,11 +137,6 @@ deploy: clean + war + deploy.
 ant
 
 Tomcat will deploy it automatically on startup.
-
-all: clean → compile → test → war.
-
-ant all
-
 
 
 ####How to Run the Application (Summary)
@@ -228,6 +213,7 @@ Password: 1234
 
 Email: customer@restaurant.com	
 Password: 1234
+
 
 
 
