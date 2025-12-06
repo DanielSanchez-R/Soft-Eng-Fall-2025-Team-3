@@ -70,7 +70,8 @@ You must:
 
 Keep them in lib/ 
 
-Fall2025Project/
+Fall2025Project/ (Directory)
+
 │ build.xml                         (Ant build script for compile, WAR, deploy, run)
 
 │ Fall2025Project.iml               (IntelliJ module configuration)
@@ -272,3 +273,4 @@ ant clean → remove build directories
 ant compile → compile Java source
 
 ant test → run JUnit tests
+
