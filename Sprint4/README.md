@@ -132,7 +132,7 @@ test: Runs all JUnit tests. Results saved under build/test-reports/.
 
 ant test
 
-deploy: clean + war + deploy.
+deploy: build + compile + war + server + deploy
 
 ant
 
@@ -234,6 +234,7 @@ Password: 1234
 
 Email: customer@restaurant.com	
 Password: 1234
+
 
 
 
