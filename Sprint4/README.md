@@ -104,13 +104,12 @@ Fall2025Project/ (Directory)
 
 │ apache-tomcat-7.0.109-windows-x64/ (Original Tomcat distribution copy; not used by Ant)
 
-└ tomcat/                           (Legacy Tomcat folder; currently not used by build.xml)
+└ tomcat/                           (Legacy Tomcat folder)
 
 ####Building & Running the Project with Ant
 
 Navigate into the project folder:
-
-cd "path\to\Fall2025Project"
+Example: (where your foldeer is located): cd "path\to\Fall2025Project"
 
 ####Full Pipeline (recommended)
 
@@ -231,8 +230,9 @@ http://localhost:8080/Fall2025Project
 
 To stop Tomcat:
 
-
-ant stop-tomcat
+ctrl c
+or
+ant stop-tomcat   
 
 ####Database Configuration
 The DBConnection class configures database connectivity.
@@ -273,4 +273,12 @@ ant clean → remove build directories
 ant compile → compile Java source
 
 ant test → run JUnit tests
+
+####User login info (no spaces)
+Email: admin@restaurant.com	
+Password: 1234
+
+Email: customer@restaurant.com	
+Password: 1234
+
 
