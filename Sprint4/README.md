@@ -168,41 +168,62 @@ ant stop-tomcat
 ####Database Configuration
 
 The DBConnection class configures database connectivity.
+
 H2 example settings:
+
 jdbc:h2:~/pizzas505db
+
 user: sa
+
 password: (empty)
+
 jdbc:h2:file:./data/restaurantdb user: root
+
 password: no password
 
 ####Accessing the H2 Database Console
+
 H2 console is at:
+
 http://localhost:8080/Fall2025Project/h2
+
 Useful SQL queries:
+
 SELECT * FROM USERS;
+
 SELECT * FROM STAFF;
+
 SELECT * FROM CUSTOMERS;
+
 SELECT * FROM TABLES;
+
 SELECT * FROM MENUITEM;
+
 SELECT * FROM ORDERS;
+
 SELECT * FROM ORDERITEMS;
 
 ####Email Configuration (JavaMail)
+
 EmailUtil.java is used for outgoing email functionality such as order confirmations and reservation notifications. Example Gmail SMTP settings:
+
 TLS enabled
+
 Authentication required
+
 Note: Gmail requires an App Password (not your normal Gmail password).
 
 ####Running Tests
+
 JUnit tests are executed using:
+
 ant test
 
-
 ####Summary of Commands
+
 ant → build + compile + war + server + deploy
-ant all → clean + compile + test + war
+
 ant clean → remove build directories
-ant compile → compile Java source
 
 ant test → run JUnit tests
 
@@ -213,6 +234,7 @@ Password: 1234
 
 Email: customer@restaurant.com	
 Password: 1234
+
 
 
 
