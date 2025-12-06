@@ -1,3 +1,7 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Daniel Sanchez
+--%>
 <%@ page import="java.util.*, java.sql.*, dao.DBConnection, dao.MenuItemDao, model.MenuItem" %>
 <%@ page import="java.io.PrintWriter" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
