@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" build-on-make="true" name="Fall2025Project:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Fall2025Project_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="h2-1.4.200" />
+          <element id="library" level="project" name="javax.servlet.api" />
+          <element id="library" level="project" name="mysql-connector-java-5.1.49-bin" />
+          <element id="file-copy" path="$PROJECT_DIR$/../activation-1.1.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../javax.mail-1.6.2.jar" />
+        </element>
+        <element id="javaee-facet-resources" facet="Fall2025Project/web/Web" />
+        <element id="directory" name="classes">
+          <element id="module-output" name="Fall2025Project" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

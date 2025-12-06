@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Fall2025Project" default="run" basedir=".">
+
+    <!-- Explicit JDK 11 javac executable -->
+    <property name="javac.exe" value="C:/Program Files/Java/jdk-11.0.16.1/bin/javac.exe" />
+
+    <!-- ===== PROJECT DIRS ===== -->
+    <property name="src.dir"         value="src" />
+    <property name="test.dir"        value="test" />
+    <property name="web.dir"         value="web" />
+    <property name="lib.dir"         value="lib" />
+
+    <property name="build.dir"       value="build" />
+    <property name="classes.dir"     value="${build.dir}/classes" />
+    <property name="testclasses.dir" value="${build.dir}/test-classes" />
+    <property name="reports.dir"     value="${build.dir}/test-reports" />
+    <property name="dist.dir"        value="dist" />
+    <property name="war.name"        value="Fall2025Project.war" />
+
+    <!-- Compile as Java 8 using JDK 11 -->
+    <property name="java.source" value="1.8" />
+    <property name="java.target" value="1.8" />
+
+    <!-- ===== TOMCAT INSIDE PROJECT (COPY YOUR TOMCAT FOLDER TO ./tomcat) ===== -->
+    <property name="tomcat.home" value="${basedir}/apache-tomcat-7.0.109" />
+    <property name="tomcat.webapps.dir" value="${tomcat.home}/webapps" />
+    <!-- Context path: http://localhost:8080/Fall2025Project -->
+    <property name="app.context" value="Fall2025Project" />
+    <property name="app.url" value="http://localhost:8080/${app.context}" />
+
+    <!-- ===== CLEAN ===== -->
+    <target name="clean">
+        <echo message="Cleaning build and dist directories..." />
+        <delete dir="${build.dir}" />
+        <delete dir="${dist.dir}" />
+    </target>
+
+    <!-- ===== INIT DIRS ===== -->
+    <target name="init">
+        <mkdir dir="${build.dir}" />
+        <mkdir dir="${classes.dir}" />
+        <mkdir dir="${testclasses.dir}" />
+        <mkdir dir="${reports.dir}" />
+        <mkdir dir="${dist.dir}" />
+    </target>
+
+    <!-- ===== CLASSPATH (all jars in lib + the two one-level-up jars) ===== -->
+    <path id="project.classpath">
+        <!-- jars inside lib/ -->
+        <fileset dir="${lib.dir}" includes="**/*.jar" erroronmissingdir="false" />
+        <!-- jars sitting one level up, as in your .iml -->
+        <pathelement location="../activation-1.1.1.jar" />
+        <pathelement location="../javax.mail-1.6.2.jar" />
+    </path>
+
+    <!-- ===== COMPILE MAIN CODE ===== -->
+    <target name="compile" depends="init">
+        <echo message="Compiling main sources..." />
+        <javac srcdir="${src.dir}"
+               destdir="${classes.dir}"
+               includeantruntime="false"
+               source="${java.source}"
+               target="${java.target}"
+               debug="true"
+               encoding="UTF-8"
+               executable="${javac.exe}">
+            <classpath refid="project.classpath" />
+        </javac>
+    </target>
+
+    <!-- ===== COMPILE TESTS ===== -->
+    <target name="compile-tests" depends="compile">
+        <echo message="Compiling test sources..." />
+        <javac srcdir="${test.dir}"
+               destdir="${testclasses.dir}"
+               includeantruntime="false"
+               source="${java.source}"
+               target="${java.target}"
+               debug="true"
+               encoding="UTF-8"
+               executable="${javac.exe}">
+            <classpath>
+                <path refid="project.classpath" />
+                <pathelement path="${classes.dir}" />
+            </classpath>
+        </javac>
+    </target>
+
+    <!-- ===== RUN JUNIT TESTS ===== -->
+    <!-- Uses junit-4.13.2.jar and hamcrest-core-1.3.jar from lib/ -->
+    <target name="test" depends="compile-tests">
+        <echo message="Running JUnit tests..." />
+        <junit printsummary="on" haltonfailure="yes" fork="true">
+            <classpath>
+                <path refid="project.classpath" />
+                <pathelement path="${classes.dir}" />
+                <pathelement path="${testclasses.dir}" />
+            </classpath>
+
+            <formatter type="plain" />
+
+            <batchtest todir="${reports.dir}">
+                <fileset dir="${testclasses.dir}">
+                    <include name="**/*Test.class" />
+                </fileset>
+            </batchtest>
+        </junit>
+    </target>
+
+    <!-- ===== BUILD WAR ===== -->
+    <target name="war" depends="compile">
+        <echo message="Building WAR file ${war.name}" />
+        <war destfile="${dist.dir}/${war.name}"
+             webxml="${web.dir}/WEB-INF/web.xml">
+
+            <!-- all JSPs, static files, etc. -->
+            <fileset dir="${web.dir}" excludes="WEB-INF/web.xml" />
+
+            <!-- compiled classes -> WEB-INF/classes -->
+            <classes dir="${classes.dir}" />
+
+            <!-- libs -> WEB-INF/lib -->
+            <lib dir="${lib.dir}" includes="**/*.jar" erroronmissingdir="false" />
+        </war>
+    </target>
+
+    <!-- ===== DEPLOY TO LOCAL TOMCAT (INSIDE PROJECT) ===== -->
+    <target name="deploy" depends="war">
+        <echo message="Deploying WAR to local Tomcat at ${tomcat.webapps.dir}..." />
+        <copy file="${dist.dir}/${war.name}"
+              todir="${tomcat.webapps.dir}"
+              overwrite="true" />
+        <echo message="Deployment complete. Tomcat will (re)deploy ${war.name}." />
+    </target>
+
+    <!-- ===== START / STOP TOMCAT (WINDOWS, with CATALINA_HOME) ===== -->
+    <target name="start-tomcat">
+        <echo message="Starting Tomcat from ${tomcat.home} ..." />
+        <exec executable="cmd" dir="${tomcat.home}/bin" failonerror="false">
+            <env key="CATALINA_HOME" value="${tomcat.home}" />
+            <env key="CATALINA_BASE" value="${tomcat.home}" />
+            <arg value="/c" />
+            <arg value="startup.bat" />
+        </exec>
+    </target>
+
+    <target name="stop-tomcat">
+        <echo message="Stopping Tomcat from ${tomcat.home} ..." />
+        <exec executable="cmd" dir="${tomcat.home}/bin" failonerror="false">
+            <env key="CATALINA_HOME" value="${tomcat.home}" />
+            <env key="CATALINA_BASE" value="${tomcat.home}" />
+            <arg value="/c" />
+            <arg value="shutdown.bat" />
+        </exec>
+    </target>
+
+    <!-- ===== RUN APPLICATION (FULL PIPELINE) ===== -->
+    <!-- clean -> war -> deploy -> start tomcat -> open browser -->
+    <target name="run" depends="clean,deploy,start-tomcat">
+        <echo message="Opening application at ${app.url} ..." />
+        <exec executable="cmd">
+            <arg value="/c" />
+            <arg value="start" />
+            <arg value="${app.url}" />
+        </exec>
+    </target>
+
+    <!-- ===== HIGH-LEVEL TARGETS ===== -->
+    <!-- package: clean + war (no tests) -->
+    <target name="package" depends="clean,war">
+        <echo message="WAR created at ${dist.dir}/${war.name}" />
+    </target>
+
+    <!-- full pipeline with tests: clean + compile + test + war -->
+    <target name="all" depends="clean,test,war">
+        <echo message="Build + tests + WAR complete." />
+    </target>
+
+</project>
+
+
+
+
+
