@@ -131,20 +131,25 @@ ant clean
 Deletes build/ and dist/ directories.
 
 compile: Compiles Java classes from src/ into build/classes.
+
 ant compile
 
 compile-tests: Compiles test classes into build/test-classes.
+
 ant compile-tests
 
 test: Runs all JUnit tests. Results saved under build/test-reports/.
+
 ant test
 
 deploy: clean + war + deploy.
+
 ant
 
 Tomcat will deploy it automatically on startup.
 
 all: clean → compile → test → war.
+
 ant all
 
 
@@ -176,6 +181,7 @@ or
 ant stop-tomcat   
 
 ####Database Configuration
+
 The DBConnection class configures database connectivity.
 H2 example settings:
 jdbc:h2:~/pizzas505db
@@ -222,6 +228,7 @@ Password: 1234
 
 Email: customer@restaurant.com	
 Password: 1234
+
 
 
 
