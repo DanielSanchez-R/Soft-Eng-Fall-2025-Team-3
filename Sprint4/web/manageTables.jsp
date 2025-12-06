@@ -1,3 +1,7 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Daniel Sanchez
+--%>
 <%@ page import="java.util.*, model.TableInfo" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
