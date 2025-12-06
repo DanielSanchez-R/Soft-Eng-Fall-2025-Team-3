@@ -44,7 +44,7 @@ hamcrest-core-1.3.jar
 
 Any other application libraries
 
-JARs referenced one folder above (based on build.xml):
+JARs referenced (based on my build.xml):
 1. junit-4.13.2.jar
 
 Used for unit testing (JUnit 4). https://search.maven.org/artifact/junit/junit/4.13.2/jar 
@@ -222,6 +222,7 @@ Password: 1234
 
 Email: customer@restaurant.com	
 Password: 1234
+
 
 
 
