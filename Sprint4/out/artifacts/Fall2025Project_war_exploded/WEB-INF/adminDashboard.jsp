@@ -112,7 +112,7 @@
     <h3>Restaurant Management</h3>
     <a href="<%= ctx %>/menu" class="btn btn-blue">🍕 Manage Menu Items</a>
     <a href="<%= ctx %>/tables" class="btn btn-orange">🪑 Manage Tables</a>
-    <a href="#" class="btn btn-green">📊 View Reports</a>
+    <a href="<%= ctx %>/report?action=viewDashboard" class="btn btn-green">📊 View Reports</a>
 </div>
 
 <!-- 🧾 Reservation Management Section -->
