@@ -7,7 +7,7 @@ Pizza 505 ENMU is a full-stack Java web application that provides an online orde
 
 Getting Started
 HOW TO OPERATE – OUT OF THE BOX GUIDE
-###Prerequisites
+###Prerequisites####
 
 
 To build and run this application, you need the following installed:
@@ -37,7 +37,7 @@ apache-tomcat-7.0.109/
 
 Do not rename or move this folder, unless you also update tomcat.home inside build.xml.
 
-####Required JAR Libraries
+####Required JAR Libraries####
 
 The following JAR files are required and should be present where build.xml expects them:
 
@@ -113,12 +113,12 @@ Fall2025Project/ (Directory)
 
 | tomcat/                           (Tomcat folder)
 
-####Building & Running the Project with Ant
+####Building & Running the Project with Ant####
 
 Navigate into the project folder:
 Example: (where your foldeer is located): cd "path\to\Fall2025Project"
 
-####Full Pipeline (recommended)
+####Full Pipeline (recommended)####
 
 Compiles → WAR → Deploy → Start local Tomcat → Open browser.
 
@@ -129,7 +129,7 @@ This automatically opens:
 
 http://localhost:8080/Fall2025Project
 
-####Ant Build Targets (What They Do)
+####Ant Build Targets (What They Do)####
 
 clean: Deletes build/ and dist/ directories.
 
@@ -146,7 +146,7 @@ ant
 Tomcat will deploy it automatically on startup.
 
 
-####How to Run the Application (Summary)
+####How to Run the Application (Summary)####
 
 Install JDK 11 and Ant.
 
@@ -172,7 +172,7 @@ or
 
 ant stop-tomcat   
 
-####Database Configuration
+####Database Configuration####
 
 The DBConnection class configures database connectivity.
 
@@ -188,7 +188,7 @@ jdbc:h2:file:./data/restaurantdb user: root
 
 password: no password
 
-####Accessing the H2 Database Console
+####Accessing the H2 Database Console####
 
 H2 console is at:
 
@@ -210,7 +210,7 @@ SELECT * FROM ORDERS;
 
 SELECT * FROM ORDERITEMS;
 
-####Email Configuration (JavaMail)
+####Email Configuration (JavaMail)####
 
 EmailUtil.java is used for outgoing email functionality such as order confirmations and reservation notifications. Example Gmail SMTP settings:
 
@@ -220,13 +220,13 @@ Authentication required
 
 Note: Gmail requires an App Password (not your normal Gmail password).
 
-####Running Tests
+####Running Tests####
 
 JUnit tests are executed using:
 
 ant test
 
-####Summary of Commands
+####Summary of Commands####
 
 ant → build + compile + war + server + deploy
 
@@ -234,13 +234,14 @@ ant clean → remove build directories
 
 ant test → run JUnit tests
 
-####User login info (no spaces)
+####User login info (no spaces)####
 
 Email: admin@restaurant.com	
 Password: 1234
 
 Email: customer@restaurant.com	
 Password: 1234
+
 
 
 
