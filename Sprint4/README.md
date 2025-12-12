@@ -1,7 +1,13 @@
+Project Title PS04: 505 Pizzas
+Simple overview of use/purpose.
+
+Description
+Pizza 505 ENMU is a full-stack Java web application that provides an online ordering and reservation platform for a local restaurant. The system allows customers to browse the menu, customize their orders, manage their shopping cart, and complete checkout with automated email confirmation. In parallel, the platform provides staff with tools to manage menu items, process orders, oversee reservations, and generate operational reports. The application is built using Java Servlets, JSP, and an H2 embedded database within a clean MVC architecture, and is deployed using Apache Ant and Tomcat.
+
+Getting Started
 HOW TO OPERATE – OUT OF THE BOX GUIDE
 ###Prerequisites
 
-**NOTE** you should run this out of the terminal (command prompt or windows powershell)  as some IDE may cause issues.
 
 To build and run this application, you need the following installed:
 
@@ -234,6 +240,7 @@ Password: 1234
 
 Email: customer@restaurant.com	
 Password: 1234
+
 
 
 
